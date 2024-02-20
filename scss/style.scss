@@ -1,4 +1,16 @@
-body{
-    font-family: SF Pro sans-serif;
-    font-weight: 274;
+@import url(../css/fonts.css);
+
+.main-result-keys{
+    display: grid;
+    max-width: 394px;
+    width: 100%;
+    grid-template: repeat(5, 1fr)/repeat(4, 1fr);
+    gap: 14px 14px;
+    &_black_null{
+        grid-area: 5/-5/6/-3;
+    }
+}
+
+.null{
+    
 }
