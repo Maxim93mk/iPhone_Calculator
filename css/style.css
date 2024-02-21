@@ -90,6 +90,9 @@ button {
   color: var(--main-color);
   border-style: none;
 }
+.mobile-down-keys__button:active {
+  background-color: var(--main-color-buttons-active);
+}
 .mobile-down-keys__button_attr1 {
   background-color: var(--first-color-buttons);
   color: var(--first-color-text-buttons);
@@ -97,11 +100,17 @@ button {
   font-weight: 510;
   padding: 24px 20px;
 }
+.mobile-down-keys__button_attr1:active {
+  background-color: var(--first-color-buttons-active);
+}
 .mobile-down-keys__button_attr2 {
   background-color: var(--second-color-buttons);
   font-size: 48px;
   font-weight: 400;
   padding: 12px 29px;
+}
+.mobile-down-keys__button_attr2:active {
+  background-color: var(--second-color-buttons-active);
 }
 .mobile-down-keys__button_null {
   max-width: 190px;

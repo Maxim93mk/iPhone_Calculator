@@ -88,18 +88,27 @@ button {
                 background-color: var(--main-color-buttons);
                 color: var(--main-color);
                 border-style: none;
+                &:active {
+                    background-color: var(--main-color-buttons-active);
+                }
                 &_attr1 {
                     background-color: var(--first-color-buttons);
                     color: var(--first-color-text-buttons);
                     font-size: 34px;
                     font-weight: 510;
                     padding: 24px 20px;
+                    &:active {
+                        background-color: var(--first-color-buttons-active);
+                    }
                 }
                 &_attr2 {
                     background-color: var(--second-color-buttons);
                     font-size: 48px;
                     font-weight: 400;
                     padding: 12px 29px;
+                    &:active {
+                        background-color: var(--second-color-buttons-active);
+                    }
                 }
                 &_null {
                     max-width: 190px;
