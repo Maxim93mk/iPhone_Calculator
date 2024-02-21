@@ -1,0 +1,12 @@
+:root{
+    --main-background-color: #000000;
+    --main-color__h1:#000000;
+    --main-color: #FFFFFF;
+    --main-color-buttons: #333333;
+    --main-color-buttons-active: #474747;
+    --first-color-buttons:#A5A5A5;
+    --first-color-buttons-active:#c9c9c9;
+    --second-color-buttons: #F1A33B;
+    --second-color-buttons-active: #f5bf76;
+    --first-color-text-buttons:#000000;
+}
