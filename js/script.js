@@ -2,7 +2,7 @@ const buttons = document.querySelector('.mobile-down-keys');
 const result = document.querySelector('.mobile-down-result__input');
 
 let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-let operators = ['AC', '+/-', '%', '÷', '*', '-', '×', '=', ','];
+let operators = ['AC', '+/-', '%', '÷', '×', '-', '+', '=', ','];
 
 let num1 = 0;
 let num2 = 0;
@@ -15,8 +15,14 @@ buttons.addEventListener('click', (event) => {
         num1 = + result.value;
     }
     else if (operators.includes(text)) {
-        result.value = text;
-        operator = + result.value;
+        switch(operator){
+            case "+": num1 + num2;
+            case "-": num1 + num2;
+            case "÷": num1 + num2;
+            case "+": num1 + num2;
+        }
+        // result.value = text;
+        // operator = + result.value;
     }
 });
 
