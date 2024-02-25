@@ -58,10 +58,10 @@ button {
         flex-wrap: wrap;
         gap: 8px;
         &-result {
+            max-width: 428px;
+            width: 100%;
+            text-align: right;
             &__input {
-                max-width: 428px;
-                width: 100%;
-                text-align: right;
                 font-size: 90px;
                 font-weight: 300;
                 background-color: var(--main-background-color);

@@ -59,10 +59,12 @@ button {
   flex-wrap: wrap;
   gap: 8px;
 }
-.mobile-down-result__input {
+.mobile-down-result {
   max-width: 428px;
   width: 100%;
   text-align: right;
+}
+.mobile-down-result__input {
   font-size: 90px;
   font-weight: 300;
   background-color: var(--main-background-color);
