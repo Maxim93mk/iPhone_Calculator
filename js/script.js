@@ -32,34 +32,28 @@ buttons.addEventListener('click', (event) => {
     else if (actions.includes(text)) {
         operator = text;
         console.log(operator);
-        //  if (num1 != '' && num2 != '') {
-        //     // res = num1;
-
-
-        //     switch (operator) {
-        //         case "+":
-        //             num1 = num1 + num2;
-
-        //             console.log("4");
-        //             break;
-        //     }
-
-        //     console.log(num1 + " | " + num2 + " | " + res);
-        //     // if (operator == "=") {
-        //         result.innerText = num1;
-        //         console.log("5");
-        //     // }
-        //  }
     }
-    switch (operator) {
-        case "+":
-            parseFloat(res) = parseFloat(num1) + parseFloat(num2);
-            console.log("res: "+res);
-            break;
+    if (num1 != '' && num2 != '') {
+        switch (operator) {
+            case "+":
+                res = parseFloat(num1) + parseFloat(num2);
+                console.log("num1: " + num1);
+                console.log("num2: " + num2);
+                break;
+            case "-":
+                res = parseFloat(num1) - parseFloat(num2);
+                break;
+            case "×":
+                res = parseFloat(num1) * parseFloat(num2);
+                break;
+            case "÷":
+                res = parseFloat(num1) / parseFloat(num2);
+                break;
+        }
+        if (operator == "=") {
+            result.innerText = res;
+            console.log("res: " + res);
+        }
     }
-    if(operator=="="){
-        result.innerText = res;
-    }
-
 });
 
