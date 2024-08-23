@@ -6,42 +6,33 @@
   box-sizing: border-box;
 }
 
-input,
-button {
-  font-family: "SF Pro", sans-serif;
-}
-
 .main-title {
-  font-size: 96px;
+  font-size: 50px;
   font-family: "SF Pro", sans-serif;
   font-weight: 600;
-  line-height: 115px;
   color: var(--main-color__h1);
   text-align: center;
 }
 
-.container {
-  max-width: 2038px;
-  width: 100%;
-  margin: 0 auto;
-}
-
 .mobile {
   display: flex;
-  max-width: 428px;
+  max-width: 454px;
+  min-height: 918px;
+  height: 100%;
   width: 100%;
   justify-content: space-between;
   flex-direction: column;
   flex-wrap: wrap;
   padding: 15px 18px 74px 18px;
   border-radius: 30px;
-  gap: 179px;
   font-family: "SF Pro", sans-serif;
-  background-color: var(--main-background-color);
+  background-image: url("../img/background.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 15px auto;
 }
 .mobile-up {
   display: flex;
-  justify-content: space-between;
   padding: 13px 20px 13px 30px;
 }
 .mobile-up-time {
@@ -53,11 +44,13 @@ button {
 .mobile-up-icons {
   display: flex;
   gap: 6px;
+  padding-left: 203px;
 }
 .mobile-down {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  padding-top: 50px;
 }
 .mobile-down-result__input {
   max-width: 428px;
@@ -69,6 +62,7 @@ button {
   border: none;
   outline: none;
   color: var(--main-color);
+  font-family: "SF Pro", sans-serif;
 }
 .mobile-down-keys {
   display: grid;
@@ -89,6 +83,8 @@ button {
   background-color: var(--main-color-buttons);
   color: var(--main-color);
   border-style: none;
+  cursor: pointer;
+  font-family: "SF Pro", sans-serif;
 }
 .mobile-down-keys__button:active {
   background-color: var(--main-color-buttons-active);

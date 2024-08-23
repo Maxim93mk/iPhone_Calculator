@@ -6,57 +6,58 @@
     padding: 0;
     box-sizing: border-box;
 }
-input,
-button {
-    font-family: "SF Pro", sans-serif;
-}
 
 .main-title {
-    font-size: 96px;
+    font-size: 50px;
     font-family: "SF Pro", sans-serif;
     font-weight: 600;
-    line-height: 115px;
     color: var(--main-color__h1);
     text-align: center;
 }
 
-.container {
-    max-width: 2038px;
-    width: 100%;
-    margin: 0 auto;
-}
+
 
 .mobile {
     display: flex;
-    max-width: 428px;
+    max-width: 454px;
+    min-height: 918px;
+    height: 100%;
     width: 100%;
     justify-content: space-between;
     flex-direction: column;
     flex-wrap: wrap;
     padding: 15px 18px 74px 18px;
     border-radius: 30px;
-    gap: 179px;
     font-family: "SF Pro", sans-serif;
-    background-color: var(--main-background-color);
+    background-image: url('../img/background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 15px auto;
+
     &-up {
         display: flex;
-        justify-content: space-between;
         padding: 13px 20px 13px 30px;
+
         &-time {
             color: var(--main-color);
             font-size: 20px;
             font-weight: 600;
             line-height: 20px;
         }
+
         &-icons {
             display: flex;
             gap: 6px;
+            padding-left: 203px;
         }
     }
+
     &-down {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
+        padding-top: 50px;
+
         &-result {
             &__input {
                 max-width: 428px;
@@ -68,14 +69,17 @@ button {
                 border: none;
                 outline: none;
                 color: var(--main-color);
+                font-family: "SF Pro", sans-serif;
             }
         }
+
         &-keys {
             display: grid;
             max-width: 428px;
             width: 100%;
             grid-template: repeat(5, 1fr) / repeat(4, 1fr);
             gap: 14px 14px;
+
             &__button {
                 max-width: 88px;
                 width: 100%;
@@ -88,28 +92,35 @@ button {
                 background-color: var(--main-color-buttons);
                 color: var(--main-color);
                 border-style: none;
+                cursor: pointer;
+                font-family: "SF Pro", sans-serif;
                 &:active {
                     background-color: var(--main-color-buttons-active);
                 }
+
                 &_attr1 {
                     background-color: var(--first-color-buttons);
                     color: var(--first-color-text-buttons);
                     font-size: 34px;
                     font-weight: 510;
                     padding: 24px 20px;
+
                     &:active {
                         background-color: var(--first-color-buttons-active);
                     }
                 }
+
                 &_attr2 {
                     background-color: var(--second-color-buttons);
                     font-size: 48px;
                     font-weight: 400;
                     padding: 12px 29px;
+
                     &:active {
                         background-color: var(--second-color-buttons-active);
                     }
                 }
+
                 &_null {
                     max-width: 190px;
                     width: 100%;
