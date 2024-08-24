@@ -1,13 +1,17 @@
+let oper = '';
+
+
+function res  (){
 const buttons = document.querySelectorAll('.mobile-down-keys__button');
 const result = document.querySelector('.mobile-down-result__input');
 const num1 = document.querySelector('.num1');
 const num2 = document.querySelector('.num2');
 
-console.log(num1.value, num2.value);
+// console.log(num1.value, num2.value);
 let res = 0;
-buttons.forEach((elem) => {
-    elem.addEventListener('click', () => {
-switch (elem.textContent) {
+// buttons.forEach((elem) => {
+//     elem.addEventListener('click', () => {
+switch (oper) {
                         case "+":
                             res = Number(num1.value) + Number(num2.value);
                             break;
@@ -21,13 +25,15 @@ switch (elem.textContent) {
                             res = Number(num1.value) * Number(num2.value);
                             break;
                     }
-                })
-        if(elem.textContent==="="){
-    result.value = res;
-}        
-});
+                // })
+                 result.value = res;
+//         if(elem.textContent==="="){
+//    
+// }        
+// });
 
 console.log(res)
+}
 // let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 // let operators = ['AC', '+/-', '%', '÷', '×', '-', '+', '=', ','];
 
@@ -38,7 +44,7 @@ console.log(res)
 // let flagOper = false;
 // let res = 0;
 // let input_str = '';
-// let oper = '';
+//  let oper = '';
 // let str = ''
 // buttons.map((e)=>{
 //     console.log(e)
