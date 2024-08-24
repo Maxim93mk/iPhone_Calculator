@@ -1,39 +1,69 @@
-let oper = '';
+const buttons = document.querySelectorAll('.mobile-down-keys__button'); // Все кнопки
+const result = document.querySelector('.mobile-down-result__input'); // Вывод
+const ac_btn = document.querySelector('.ac'); // Кнопка АС (очистить все)
 
 
-function res  (){
-const buttons = document.querySelectorAll('.mobile-down-keys__button');
-const result = document.querySelector('.mobile-down-result__input');
-const num1 = document.querySelector('.num1');
-const num2 = document.querySelector('.num2');
+const numbers = [',', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+const action = ['+/-', '%', '÷', '×', '-', '+', '='];
+
+let number1 = ''; // Первое число
+let number2 = ''; // Второе число
+let sign = ''; // Знак 
+let flagFinish = false; // Завершение операции
+
+// Функция - очистить все
+ let clearAll = ()=>{
+    number1 = '';
+    number2 = '';
+    sign = '';
+    flagFinish = false;
+    result.value = 0;
+};
+
+// Кнопка АС (очистить все)
+ac_btn.addEventListener('click', ()=>{clearAll();}); // очистить все
+
+// Обработка нажатия кнопок
+
+
+
+
+// let oper = '';
+
+
+// function res  (){
+// const buttons = document.querySelectorAll('.mobile-down-keys__button');
+// const result = document.querySelector('.mobile-down-result__input');
+// const num1 = document.querySelector('.num1');
+// const num2 = document.querySelector('.num2');
 
 // console.log(num1.value, num2.value);
-let res = 0;
+// let res = 0;
 // buttons.forEach((elem) => {
 //     elem.addEventListener('click', () => {
-switch (oper) {
-                        case "+":
-                            res = Number(num1.value) + Number(num2.value);
-                            break;
-                        case "-":
-                            res = Number(num1.value) - Number(num2.value);
-                            break;
-                        case "÷":
-                            res = Number(num1.value) / Number(num2.value);
-                            break;
-                        case "×":
-                            res = Number(num1.value) * Number(num2.value);
-                            break;
-                    }
+// switch (oper) {
+//                         case "+":
+//                             res = Number(num1.value) + Number(num2.value);
+//                             break;
+//                         case "-":
+//                             res = Number(num1.value) - Number(num2.value);
+//                             break;
+//                         case "÷":
+//                             res = Number(num1.value) / Number(num2.value);
+//                             break;
+//                         case "×":
+//                             res = Number(num1.value) * Number(num2.value);
+//                             break;
+//                     }
                 // })
-                 result.value = res;
+                //  result.value = res;
 //         if(elem.textContent==="="){
 //    
 // }        
 // });
 
-console.log(res)
-}
+// console.log(res)
+// }
 // let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 // let operators = ['AC', '+/-', '%', '÷', '×', '-', '+', '=', ','];
 
