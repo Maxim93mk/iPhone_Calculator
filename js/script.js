@@ -19,60 +19,22 @@ let clearAll = () => {
    sign = '';
    flagFinish = false;
    flagPlusMinus = false;
+   flagNumber1 = false;
+   flagNumber2 = false;
    result.value = 0;
 };
 
-// Функция формирования строки
-let _getNumberString = (key, target) => {
-   console.log(target)
-   number1 += key;
-   if (target.classList.contains("pm")) {
-      console.log("kc")
-      number1 = Number(number1) * -1;
+
+// Функция нажатия на кнопку +/-
+let plusMinusNumber = (number) => {
+   flagPlusMinus = !flagPlusMinus;
+   number = Number(number) * -1;
+   if (!flagPlusMinus) {
+      number = Number(number);
    }
-   return number1;
-   // number1 += key;
-   // let str = number1;
-   // if (key === "+/-") {
-   //    if (flagPlusMinus = !flagPlusMinus) {
-   //       str = str.replace('+/-', '-');
-   //       console.log(str)
-
-   //    }
-   //    else {
-   //       number1 = number1.replace('+/-', '');
-   //    }
-
-   // }
-   // number1 = str;
-   // console.log(key)
-   // return number1;
-   // console.log(key)
-   // if (key==="+/-"){
-   //    console.log("1r")
-   //    if (flagPlusMinus = !flagPlusMinus) {
-   //       console.log("2r")
-   //        number1 = Number(number1)*-1;
-   //       result.value =  number1;
-   //    }
-   //    else {
-   //       result.value = number1;
-   //    }
-   // }
-   // if (key === '.') {
-   //    if (!number1.includes('.')) {
-   //       number1 += key;
-   //       result.value = number1;
-   //    }
-   //    else {
-   //       result.value = number1;
-   //    }
-   // }
-   // else {
-   //    number1 += key;
-   //    result.value = number1;
-   // }
+   return number;
 }
+
 
 // Обработка нажатия кнопок
 buttons.addEventListener('click', (evt) => {
@@ -80,18 +42,14 @@ buttons.addEventListener('click', (evt) => {
    if (!evt.target.classList.contains("mobile-down-keys__button")) { return };
    // Нажата кнопка 'АС' (очистить все)
    if (evt.target.classList.contains("ac")) { clearAll(); }
-   //
-   if (evt.target.classList.contains("pm")) {
-
-   }
    // Очистка экрана перед нажатием
    //  result.value = '';
    key = evt.target.textContent;
-   const target = evt.target;
    // Нажата кнопка '0-9'
    if (numbers.includes(key)) {
       if (number2 === "" && sign === "") {
-         result.value = _getNumberString(key, target);
+         number1 += key;
+         result.value = number1;
          flagNumber1 = true;
          flagNumber2 = false;
       }
@@ -99,32 +57,12 @@ buttons.addEventListener('click', (evt) => {
          number2 = key;
          flagFinish = false;
          result.value = number2;
-         // if (evt.target.classList.contains("pm")) {
-         //    if (flagPlusMinus = !flagPlusMinus) {
-         //       number2 = Number(number2) * -1;
-         //       result.value = number2;
-         //    }
-         //    else {
-         //       result.value = number2;
-         //    }
-         // }
       }
       else {
          number2 += key;
          result.value = number2;
          flagNumber2 = true;
          flagNumber1 = false;
-         // if (evt.target.classList.contains("pm")) {
-         //    console.log("1")
-         //    if (flagPlusMinus = !flagPlusMinus) {
-         //       console.log("2")
-         //       number2 = Number(number2) * -1;
-         //       result.value = number2;
-         //    }
-         //    else {
-         //       result.value = number2;
-         //    }
-         // }
       }
    }
    // Нажата кнопка '÷', '×', '-', '+'
@@ -137,13 +75,25 @@ buttons.addEventListener('click', (evt) => {
       if (flagNumber1) {
          number1 = Number(number1 / 100);
          result.value = number1;
+         flagNumber1 = false;
       }
       else if (flagNumber2) {
          number2 = Number(number2 / 100);
          result.value = number2;
+         flagNumber2 = false;
       }
    }
-   // 
+   // Нажата кнопка +/-
+   if (key === "+/-") {
+      if (flagNumber1) {
+         number1 = plusMinusNumber(number1);
+         result.value = number1;
+      }
+      else if (flagNumber2) {
+         number2 = plusMinusNumber(number2);
+         result.value = number2;
+      }
+   }
    console.log(number1, sign, number2);
    // Нажата кнопка '='
    if (key === "=") {
