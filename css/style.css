@@ -29,11 +29,11 @@
   background-image: url("../img/background.png");
   background-position: center;
   background-repeat: no-repeat;
-  margin: 15px auto;
+  margin: 50px auto;
 }
 .mobile-up {
   display: flex;
-  padding: 13px 20px 13px 30px;
+  padding: 45px 20px 13px 30px;
 }
 .mobile-up-time {
   color: var(--main-color);
