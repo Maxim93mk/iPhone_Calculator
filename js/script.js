@@ -7,8 +7,10 @@ const action = ['÷', '×', '-', '+'];
 let number1 = ''; // Первое число
 let number2 = ''; // Второе число
 let sign = ''; // Знак
-let flagFinish = false; // Флаг авершения операции
-let flagPlusMinus = false;
+let flagFinish = false; // Флаг завершения операции
+let flagPlusMinus = false; // Флаг переключателя 
+let flagNumber1 = false; // Флаг первого числа
+let flagNumber2 = false; // Флаг второго числа
 
 // Функция - очистить все
 let clearAll = () => {
@@ -16,12 +18,60 @@ let clearAll = () => {
    number2 = '';
    sign = '';
    flagFinish = false;
+   flagPlusMinus = false;
    result.value = 0;
 };
 
-// Функция проверки нажатия на кнопку '.'
-let clickDotBtn = () => {
+// Функция формирования строки
+let _getNumberString = (key, target) => {
+   console.log(target)
+   number1 += key;
+   if (target.classList.contains("pm")) {
+      console.log("kc")
+      number1 = Number(number1) * -1;
+   }
+   return number1;
+   // number1 += key;
+   // let str = number1;
+   // if (key === "+/-") {
+   //    if (flagPlusMinus = !flagPlusMinus) {
+   //       str = str.replace('+/-', '-');
+   //       console.log(str)
 
+   //    }
+   //    else {
+   //       number1 = number1.replace('+/-', '');
+   //    }
+
+   // }
+   // number1 = str;
+   // console.log(key)
+   // return number1;
+   // console.log(key)
+   // if (key==="+/-"){
+   //    console.log("1r")
+   //    if (flagPlusMinus = !flagPlusMinus) {
+   //       console.log("2r")
+   //        number1 = Number(number1)*-1;
+   //       result.value =  number1;
+   //    }
+   //    else {
+   //       result.value = number1;
+   //    }
+   // }
+   // if (key === '.') {
+   //    if (!number1.includes('.')) {
+   //       number1 += key;
+   //       result.value = number1;
+   //    }
+   //    else {
+   //       result.value = number1;
+   //    }
+   // }
+   // else {
+   //    number1 += key;
+   //    result.value = number1;
+   // }
 }
 
 // Обработка нажатия кнопок
@@ -31,67 +81,50 @@ buttons.addEventListener('click', (evt) => {
    // Нажата кнопка 'АС' (очистить все)
    if (evt.target.classList.contains("ac")) { clearAll(); }
    //
-   
+   if (evt.target.classList.contains("pm")) {
+
+   }
    // Очистка экрана перед нажатием
    //  result.value = '';
    key = evt.target.textContent;
+   const target = evt.target;
    // Нажата кнопка '0-9'
    if (numbers.includes(key)) {
       if (number2 === "" && sign === "") {
-         console.log(key)
-         if (key==="+/-"){
-            console.log("1r")
-            if (flagPlusMinus = !flagPlusMinus) {
-               console.log("2r")
-                number1 = Number(number1)*-1;
-               result.value =  number1;
-            }
-            else {
-               result.value = number1;
-            }
-         }
-         if (key === '.') {
-            if (!number1.includes('.')) {
-               number1 += key;
-               result.value = number1;
-            }
-            else {
-               result.value = number1;
-            }
-         }
-         else {
-            number1 += key;
-            result.value = number1;
-         }
+         result.value = _getNumberString(key, target);
+         flagNumber1 = true;
+         flagNumber2 = false;
       }
       else if (number1 !== "" && number2 !== "" && flagFinish) {
          number2 = key;
          flagFinish = false;
          result.value = number2;
-         if (evt.target.classList.contains("pm")){
-            if (flagPlusMinus = !flagPlusMinus) {
-                number2 = Number(number2)*-1;
-               result.value =  number2;
-            }
-            else {
-               result.value = number2;
-            }
-         }
+         // if (evt.target.classList.contains("pm")) {
+         //    if (flagPlusMinus = !flagPlusMinus) {
+         //       number2 = Number(number2) * -1;
+         //       result.value = number2;
+         //    }
+         //    else {
+         //       result.value = number2;
+         //    }
+         // }
       }
       else {
          number2 += key;
          result.value = number2;
-         if (evt.target.classList.contains("pm")){
-            console.log("1")
-            if (flagPlusMinus = !flagPlusMinus) {
-               console.log("2")
-                number2 = Number(number2)*-1;
-               result.value =  number2;
-            }
-            else {
-               result.value = number2;
-            }
-         }
+         flagNumber2 = true;
+         flagNumber1 = false;
+         // if (evt.target.classList.contains("pm")) {
+         //    console.log("1")
+         //    if (flagPlusMinus = !flagPlusMinus) {
+         //       console.log("2")
+         //       number2 = Number(number2) * -1;
+         //       result.value = number2;
+         //    }
+         //    else {
+         //       result.value = number2;
+         //    }
+         // }
       }
    }
    // Нажата кнопка '÷', '×', '-', '+'
@@ -101,10 +134,16 @@ buttons.addEventListener('click', (evt) => {
    }
    // Нажата кнопка '%'
    if (key === '%') {
-      number1 = Number(number1 / 100);
-      result.value = number1;
+      if (flagNumber1) {
+         number1 = Number(number1 / 100);
+         result.value = number1;
+      }
+      else if (flagNumber2) {
+         number2 = Number(number2 / 100);
+         result.value = number2;
+      }
    }
-
+   // 
    console.log(number1, sign, number2);
    // Нажата кнопка '='
    if (key === "=") {
