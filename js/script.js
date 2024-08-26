@@ -24,7 +24,6 @@ let clearAll = () => {
    result.value = 0;
 };
 
-
 // Функция нажатия на кнопку +/-
 let plusMinusNumber = (number) => {
    flagPlusMinus = !flagPlusMinus;
@@ -34,7 +33,6 @@ let plusMinusNumber = (number) => {
    }
    return number;
 }
-
 
 // Обработка нажатия кнопок
 buttons.addEventListener('click', (evt) => {
@@ -48,10 +46,12 @@ buttons.addEventListener('click', (evt) => {
    // Нажата кнопка '0-9'
    if (numbers.includes(key)) {
       if (number2 === "" && sign === "") {
-         number1 += key;
-         result.value = number1;
-         flagNumber1 = true;
-         flagNumber2 = false;
+         if (number1.length < 8) {
+            number1 += key;
+            result.value = number1;
+            flagNumber1 = true;
+            flagNumber2 = false;
+         }
       }
       else if (number1 !== "" && number2 !== "" && flagFinish) {
          number2 = key;
@@ -59,10 +59,12 @@ buttons.addEventListener('click', (evt) => {
          result.value = number2;
       }
       else {
-         number2 += key;
-         result.value = number2;
-         flagNumber2 = true;
-         flagNumber1 = false;
+         if (number2.length < 8) {
+            number2 += key;
+            result.value = number2;
+            flagNumber2 = true;
+            flagNumber1 = false;
+         }
       }
    }
    // Нажата кнопка '÷', '×', '-', '+'
